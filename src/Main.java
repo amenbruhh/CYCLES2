@@ -8,25 +8,28 @@ public class Main {
 
         // задача 1
 
+        int goal = 2_459_000;
         int monthlySavings = 15_000;
+        double percentRate = 0.01;
         int bankTotal = 0;
         int month = 0;
 
-        while (bankTotal < 2_459_000) {
+        while (bankTotal < goal) {
             month++;
-            bankTotal = bankTotal + monthlySavings;
-            bankTotal = bankTotal + bankTotal / 100;
+            bankTotal += monthlySavings;
+            double percent = bankTotal * percentRate;
+            bankTotal += (int) percent;
             System.out.println("Месяц " + month + " сумма накоплений равна " + bankTotal);
         }
         printSeparator();
 
         // задача 2
 
-        int string2 = 1;
+        int numberString = 1;
 
-        while (string2 <= 10) {
-            System.out.print(string2 + " ");
-            string2++;
+        while (numberString <= 10) {
+            System.out.print(numberString + " ");
+            numberString++;
         }
         System.out.println();
 
@@ -53,17 +56,17 @@ public class Main {
         // задача 4
 
         int initialDeposit = 15000;
-        int goal = 12000000;
+        int goal1 = 12000000;
         double monthlyIncrease = 0.07;
         double currentAmount = initialDeposit;
         int months = 0;
 
-        while (currentAmount < goal) {
+        while (currentAmount < goal1) {
             months++;
             currentAmount *= (1 + monthlyIncrease);
             System.out.printf("Месяц %d: %.2f рублей\n", months, currentAmount);
         }
-        System.out.println("\nВасилию потребуется " + months + " месяцев, чтобы накопить " + goal + " рублей.");
+        System.out.println("\nВасилию потребуется " + months + " месяцев, чтобы накопить " + goal1 + " рублей.");
         printSeparator();
 
         // задача 5
@@ -71,7 +74,7 @@ public class Main {
         currentAmount = initialDeposit;
         months = 0;
 
-        while (currentAmount < goal) {
+        while (currentAmount < goal1) {
             months++;
             currentAmount *= (1 + monthlyIncrease);
 
@@ -97,12 +100,17 @@ public class Main {
 
         // задача 7
 
-        int firstFriday = 6;
+        int firstFriday = 0;
+        int fridays = 0;
 
         for (int day = 0; day < 31; day++) {
             int dayOfWeek = (firstFriday + day - 1) % 7;
             if (dayOfWeek == 5) {
-                System.out.println("Сегодня пятница, " + day + "-е число. Необходимо подготовить отчет");
+                System.out.println("Сегодня пятница, " + (day + 1) + "-е число. Необходимо подготовить отчет");
+                fridays++;
+                if (fridays == 5) {
+                    break;
+                }
             }
         }
         printSeparator();
@@ -120,4 +128,3 @@ public class Main {
         }
     }
 }
-
